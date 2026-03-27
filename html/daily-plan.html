@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ Recipes</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/daily-plan.css">
+    <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/me.css">
+
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">Balance+</div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+            </ul>
+
+            <div class="user-menu">
+                <div class="user-toggle" id="userBtn">
+                    <img src="../images/openclipart-vectors-avatar-1299805_1280.png" class="user-img" alt="User">
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </div>
+                <div class="dropdown" id="dropdownMenu">
+                    <a href="#">Profile</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="daily-plan-section">
+        <div class="container">
+            <div class="plan-layout">
+                <div class="plan-left">
+                    <div class="plan-header">
+                        <div class="header-content">
+                            <h1 class="plan-title">Daily Wellness Plan</h1>
+                            <p class="plan-subtitle">Your personalized wellness suggestions for today</p>
+                        </div>
+                        <a href="#menu" class="view-menu-link">View Full Menu</a>
+                    </div>
+
+                    <div class="meal-cards-grid">
+                        <div class="meal-card">
+                            <div class="meal-image">
+                                <img src="../images/alimentos-fotogenicos-I7-KczdRauI-unsplash.jpg"  alt="Breakfast">
+                            </div>
+                            <div class="meal-info">
+                                <div class="meal-header">
+                                    <h3 class="meal-title">Breakfast</h3>
+                                    <svg class="meal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 7l-5 5-5-5"></path>
+                                    </svg>
+                                </div>
+                                <p class="meal-description">Start your day with a nutritious breakfast packed with protein and whole grains to fuel your morning.</p>
+                                <button class="btn-meal">View Recipe</button>
+                            </div>
+                        </div>
+
+                        <div class="meal-card">
+                            <div class="meal-image">
+                                <img src="../images/sumit-bhatia-g7WrssBb1Ak-unsplash.jpg" alt="Lunch">
+                            </div>
+                            <div class="meal-info">
+                                <div class="meal-header">
+                                    <h3 class="meal-title">Lunch</h3>
+                                    <svg class="meal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                </div>
+                                <p class="meal-description">Enjoy a balanced lunch with lean proteins, fresh vegetables and healthy carbs to keep you energized.</p>
+                                <button class="btn-meal">View Recipe</button>
+                            </div>
+                        </div>
+
+                        <div class="meal-card">
+                            <div class="meal-image">
+                                <img src="../images/karolina-kolodziejczak-Qf-gqJSWFYQ-unsplash.jpg" alt="Dinner">
+                            </div>
+                            <div class="meal-info">
+                                <div class="meal-header">
+                                    <h3 class="meal-title">Dinner</h3>
+                                    <svg class="meal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                </div>
+                                <p class="meal-description">A wholesome dinner featuring nutrient-dense ingredients to support recovery and restful sleep.</p>
+                                <button class="btn-meal">View Recipe</button>
+                            </div>
+                        </div>
+
+                        <div class="meal-card">
+                            <div class="meal-image">
+                                <img src="../images/andrew-molyneaux-X00aKdald68-unsplash.jpg" alt="Snack">
+                            </div>
+                            <div class="meal-info">
+                                <div class="meal-header">
+                                    <h3 class="meal-title">Snack</h3>
+                                    <svg class="meal-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                </div>
+                                <p class="meal-description">Smart snacking with nutritious options to maintain steady energy levels throughout the day.</p>
+                                <button class="btn-meal">View Recipe</button>
+                            </div>
+                        </div>
+
+                        <div class="meal-card workout-card">
+                            <div class="meal-image workout-image">
+                                <img src="../images/fitt2.jpeg" alt="Workout">
+                            </div>
+                            <div class="meal-info">
+                                <div class="meal-header">
+                                    <h3 class="meal-title">Daily Workout</h3>
+                                    <svg class="meal-icon workout-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                    </svg>
+                                </div>
+                                <p class="meal-description">Daily exercise routine designed to build strength, improve flexibility and boost overall wellness. This personalized workout matches your fitness level and goals.</p>
+                                <button class="btn-meal btn-workout">Start Workout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="plan-right">
+                    <div class="hydration-tracker">
+                        <div class="tracker-header">
+                            <h2 class="tracker-title">Hydration Tracker</h2>
+                            <svg class="tracker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="hydration-progress">
+                            <div class="progress-info">
+                                <span class="progress-current" id="cupsCount">2</span>
+                                <span class="progress-total">/ 8 cups</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-label">
+                                <span>PROGRESS</span>
+                                <span id="progressPercent">25%</span>
+                            </div>
+                        </div>
+                        <div class="water-cups" id="waterCups">
+                            <div class="cup filled" data-cup="1">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup filled" data-cup="2">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="3">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="4">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="5">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="6">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="7">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="cup" data-cup="8">
+                                <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 10 L80 10 L70 110 L30 110 Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="hydration-note">Click cups to track your water intake</p>
+                    </div>
+
+                    <div class="health-tip">
+                        <div class="tip-header">
+                            <div class="tip-icon">
+                                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-width="3"/>
+                                    <circle cx="32" cy="46" r="3" fill="currentColor"/>
+                                    <path d="M32 16 Q28 26, 32 36 Q36 26, 32 16" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <button class="tip-favorite" id="tipFavorite" aria-label="Add to favorites">
+                                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="tip-content">
+                            <h3 class="tip-title">Daily Health Tip</h3>
+                            <p class="tip-text">Stay hydrated throughout the day! Drinking water regularly helps maintain energy levels, supports digestion, and keeps your skin healthy. Aim for 8 glasses daily.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="footer-col">
+        <h3 class="footer-logo">Balance+</h3>
+        <p>Science-based nutrition for a healthier you.</p>
+    </div>
+    <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul><li>Home</li><li>About Us</li><li>Services</li></ul>
+    </div>
+    <div class="footer-col">
+        <h4>Support</h4>
+        <ul><li>Contact Us</li><li>FAQ</li><li>Privacy Policy</li></ul>
+    </div>
+    <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script src="../js/daily-plan.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

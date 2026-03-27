@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ | Cultivate a Healthier Life</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">Balance+</div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li class="nav-buttons">
+                    <a href="login.html" class="btn btn-secondary">Log in</a>
+                    <a href="signup.html" class="btn btn-primary">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <h1>Cultivate a Healthier Life Starting Today</h1>
+                <p>Balance+ helps you build sustainable wellness habits through personalized daily plans, nutrition guidance, and mindful lifestyle tracking. Transform your health journey one day at a time.</p>
+                <div class="hero-buttons">
+                    <a href="#start" class="btn btn-primary btn-large">Get Started Free</a>
+                    <a href="#learn" class="btn btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-slider reveal">
+                <div class="slider-container">
+                    <div class="slider-track">
+                        <div class="slide active">
+                            <img src="../images/hero-1.jpg" alt="Wellness journey">
+                        </div>
+                        <div class="slide">
+                            <img src="../images/hero-2.jpg" alt="Healthy lifestyle">
+                        </div>
+                        <div class="slide">
+                            <img src="../images/hero-3.jpg" alt="Fitness and nutrition">
+                        </div>
+                    </div>
+                    <button class="slider-btn prev" aria-label="Previous slide">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-btn next" aria-label="Next slide">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="slider-dots">
+                        <button class="dot active" aria-label="Slide 1"></button>
+                        <button class="dot" aria-label="Slide 2"></button>
+                        <button class="dot" aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C300,80 600,80 900,40 C1050,20 1150,0 1200,0 L1200,120 L0,120 Z" fill="#FFFFFF"/>
+        </svg>
+    </div>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">OUR SERVICES</span>
+                <h2>Holistic Health Solutions</h2>
+                <p class="section-description">Comprehensive tools and resources designed to support every aspect of your wellness journey</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <span class="service-badge badge-popular">Popular</span>
+                    <div class="service-icon-wrapper icon-primary">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="14" width="28" height="24" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <line x1="16" y1="10" x2="16" y2="14" stroke="currentColor" stroke-width="2"/>
+                                <line x1="32" y1="10" x2="32" y2="14" stroke="currentColor" stroke-width="2"/>
+                                <line x1="10" y1="22" x2="38" y2="22" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Daily Plans</h3>
+                    <p>Personalized daily schedules tailored to your goals, lifestyle, and preferences for consistent progress.</p>
+                    <a href="#daily-plans" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-badge badge-new">New</span>
+                    <div class="service-icon-wrapper icon-accent">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 30 L18 42 L30 42 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Healthy Recipes</h3>
+                    <p>Delicious, nutritious meal ideas with detailed nutrition information and easy-to-follow instructions.</p>
+                    <a href="#recipes" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-badge badge-popular">Popular</span>
+                    <div class="service-icon-wrapper icon-sky">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 10 L24 24 L32 28" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Workout Programs</h3>
+                    <p>Customized exercise routines for all fitness levels, from beginner-friendly to advanced training.</p>
+                    <a href="#workouts" class="service-link">Learn more →</a>
+                </div>
+                <div class="service-card reveal">
+                    <span class="service-badge badge-personalized">Personalized</span>
+                    <div class="service-icon-wrapper icon-primary">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 8 Q30 16, 24 24 Q18 16, 24 8" fill="currentColor"/>
+                                <path d="M24 24 Q30 32, 24 40 Q18 32, 24 24" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3>Water Tracking</h3>
+                    <p>Simple hydration monitoring with reminders to help you maintain optimal water intake throughout the day.</p>
+                    <a href="#water" class="service-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="wave-divider wave-inverted">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C300,100 600,100 900,60 C1050,40 1150,20 1200,20 L1200,0 L0,0 Z" fill="#FFFFFF"/>
+        </svg>
+    </div>
+
+    <section class="stories" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="header-row">
+                    <span class="section-label">OUR STORIES</span>
+                    <span class="pill-label">Success Stories</span>
+                </div>
+                <h2>Real Results from Real People</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">"Balance+ helped me develop consistent healthy habits without overwhelming me. The daily plans keep me accountable and motivated every single day."</p>
+                    <div class="testimonial-author">
+                        <img src="../images/user1.jpg" alt="Sarah M." class="avatar">
+                        <div class="author-info">
+                            <strong>Sarah M.</strong>
+                            <span>Health Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">"The personalized workout programs and recipe suggestions made it so easy to stay on track. I've never felt better in my life."</p>
+                    <div class="testimonial-author">
+                        <img src="../images/user2.jpg" alt="James L." class="avatar">
+                        <div class="author-info">
+                            <strong>James L.</strong>
+                            <span>Fitness Professional</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <p class="testimonial-quote">"As a busy parent, Balance+ gives me the structure I need without adding stress. The app integrates seamlessly into my daily routine."</p>
+                    <div class="testimonial-author">
+                        <img src="../images/hero-3.jpg" alt="Maria K." class="avatar">
+                        <div class="author-info">
+                            <strong>Maria K.</strong>
+                            <span>Working Parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="transformation">
+        <div class="container">
+            <h2 class="reveal">Start Your Transformation</h2>
+            <div class="steps-container">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <p>Create an account</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <p>Choose your goals</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <p>Get your daily plan</p>
+                </div>
+            </div>
+            <div class="cta-card reveal">
+                <p>Ready to begin your wellness journey?</p>
+                <a href="#signup" class="btn btn-primary">Create Free Account</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-banner">
+        <div class="container">
+            <div class="banner-card reveal">
+                <div class="banner-content">
+                    <h2>Empowering you to live your best life</h2>
+                    <p>Balance+ was created with the belief that everyone deserves access to personalized wellness tools. We combine science-backed methods with intuitive design to help you achieve lasting health transformations.</p>
+                    <a href="#story" class="text-link">Read our full story →</a>
+                </div>
+                <div class="banner-image">
+                    <img src="../images/banner.jpg" alt="Balance+ story">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">Balance+</div>
+                    <p class="footer-tagline">Your partner in holistic wellness and healthy living</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#facebook" aria-label="Facebook" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#twitter" aria-label="Twitter" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#instagram" aria-label="Instagram" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#linkedin" aria-label="LinkedIn" class="social-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" fill="currentColor"/>
+                                <circle cx="4" cy="4" r="2" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Balance+. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
