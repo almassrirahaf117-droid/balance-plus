@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ | Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        primaryDark: '#07505A',
+                        accent: '#6FCF97',
+                        bgLight: '#F6FBFC',
+                        cardGray: '#e9ebed',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    </style>
+</head>
+<body class="bg-bgLight text-slate-900">
+
+    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-2xl font-bold text-primary tracking-tight">Balance+</div>
+            
+            <button class="md:hidden text-primary text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <li><a href="home.html" class="text-slate-500 hover:text-primary transition">Home</a></li>
+                <li><a href="home.html#about" class="text-slate-500 hover:text-primary transition">About</a></li>
+                <li><a href="services.html" class="text-primary border-b-2 border-primary pb-1">Services</a></li>
+                
+                <li class="relative group">
+                    <div class="flex items-center gap-2 cursor-pointer py-2" id="userBtn">
+                        <img src="../images/openclipart-vectors-avatar-1299805_1280.png" class="w-8 h-8 rounded-full border border-slate-200" alt="User">
+                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                    </div>
+                    <div class="absolute right-0 top-full w-40 bg-white shadow-xl rounded-xl py-2 border border-slate-100 hidden group-hover:block animate-fade-in">
+                        <a href="profile.html" class="block px-4 py-2 text-xs hover:bg-slate-50 transition">Profile</a>
+                        <a href="logout.html" class="block px-4 py-2 text-xs text-red-500 hover:bg-red-50 transition">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+   
+<section class="py-16">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            
+            <div class="lg:col-span-8 space-y-8">
+                <div class="flex justify-between items-end mb-4">
+                    <div>
+                        <h2 class="text-3xl font-black text-slate-800 tracking-tight">Daily Wellness Plan</h2>
+                        <p class="text-slate-400 text-xs font-medium">Your personalized nutrition journey for today</p>
+                    </div>
+                    <button id="viewMenuBtn" class="text-primary text-xs font-bold hover:underline italic transition text-blue-600">View Full Menu</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="mealsGrid">
+                    <div class="meal-card bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="../images/altumcode-BT-Cx1n1LXA-unsplash.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full"><i class="fa-solid fa-utensils text-[10px] text-slate-400"></i></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-black text-slate-800 mb-1 text-sm">Breakfast</h3>
+                            <p class="text-[11px] text-slate-500 leading-relaxed mb-6">Start your day with a nutritious breakfast packed with protein.</p>
+                            <button onclick="showRecipe('breakfast')" class="w-full py-3 bg-slate-50 rounded-2xl text-slate-400 text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">View Recipe</button>
+                        </div>
+                    </div>
+
+                    <div class="meal-card bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="../images/sumit-bhatia-g7WrssBb1Ak-unsplash.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full"><i class="fa-regular fa-clock text-[10px] text-slate-400"></i></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-black text-slate-800 mb-1 text-sm">Lunch</h3>
+                            <p class="text-[11px] text-slate-500 leading-relaxed mb-6">Enjoy a balanced lunch with lean proteins and fresh veggies.</p>
+                            <button onclick="showRecipe('lunch')" class="w-full py-3 bg-slate-50 rounded-2xl text-slate-400 text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">View Recipe</button>
+                        </div>
+                    </div>
+
+                    <div class="extra-meal hidden meal-card bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="../images/karolina-kolodziejczak-Qf-gqJSWFYQ-unsplash.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full"><i class="fa-solid fa-moon text-[10px] text-slate-400"></i></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-black text-slate-800 mb-1 text-sm">Dinner</h3>
+                            <p class="text-[11px] text-slate-500 leading-relaxed mb-6">A light and satisfying dinner to end your day perfectly.</p>
+                            <button onclick="showRecipe('dinner')" class="w-full py-3 bg-slate-50 rounded-2xl text-slate-400 text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">View Recipe</button>
+                        </div>
+                    </div>
+
+                    <div class="extra-meal hidden meal-card bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden group hover:shadow-md transition-all">
+                        <div class="h-40 overflow-hidden relative">
+                            <img src="../images/maksim-shutov-pUa1On18Jno-unsplash.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            <div class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full"><i class="fa-solid fa-apple-whole text-[10px] text-slate-400"></i></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-black text-slate-800 mb-1 text-sm">Snack</h3>
+                            <p class="text-[11px] text-slate-500 leading-relaxed mb-6">Smart snacking to keep your energy levels consistent.</p>
+                            <button onclick="showRecipe('snack')" class="w-full py-3 bg-slate-50 rounded-2xl text-slate-400 text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">View Recipe</button>
+                        </div>
+                    </div>
+                </div>
+             
+
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-black text-slate-800">Daily Workout</h3>
+                        <i class="fa-solid fa-bolt-lightning text-yellow-400/40"></i>
+                    </div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-full md:w-56 h-36 rounded-3xl overflow-hidden shadow-inner bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <p class="text-xs text-slate-500 leading-relaxed mb-6 font-medium italic">"Your daily exercise routine designed to build strength and flexibility."</p>
+             <button id="startWorkoutBtn" class="w-full md:w-auto px-10 py-4 bg-[#10B981] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:shadow-lg hover:shadow-emerald-200 transition-all active:scale-95">Start Workout</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+  
+<div class="lg:col-span-4 space-y-8">
+    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-50 shadow-sm text-center">
+        <div class="flex justify-between items-center mb-8">
+            <h3 class="font-black text-slate-800 text-sm uppercase tracking-wider">Hydration</h3>
+            <i class="fa-solid fa-droplet text-cyan-400 text-xs"></i>
+        </div>
+        
+        <div class="mb-8">
+            <div class="flex items-baseline justify-center gap-1">
+                <span id="waterCount" class="text-6xl font-black text-slate-900 tracking-tighter">0</span>
+                <span class="text-slate-300 text-lg font-bold">/8</span>
+            </div>
+            <p class="text-[10px] font-black text-cyan-500 uppercase tracking-[0.2em] mt-2">Cups Today</p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-6" id="newCupsContainer"></div>
+        
+        <p class="text-[10px] text-slate-300 mt-8 italic font-medium">Tap each cup as you drink</p>
+    </div>
+
+<div class="bg-amber-50/50 p-8 rounded-[2.5rem] border border-amber-100/50">
+                    <div class="w-10 h-10 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 mb-4 shadow-sm">
+                        <i class="fa-solid fa-lightbulb text-sm"></i>
+                    </div>
+    <h4 class="font-black text-slate-800 text-xs mb-2 uppercase tracking-wide">Health Tip</h4>
+                    <p class="text-[11px] text-slate-500 leading-relaxed font-medium">Stay hydrated! Drinking water regularly helps maintain energy levels and digestion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="recipeModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="bg-white rounded-[2.5rem] max-w-lg w-full max-h-[90vh] overflow-y-auto p-8 relative shadow-2xl">
+        <button onclick="closeRecipe()" class="absolute top-6 right-6 text-slate-300 hover:text-slate-900 transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+   <footer class="bg-[#0F172A] text-white pt-16 pb-8 mt-auto">
+    <div class="max-w-[1100px] mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-10 text-sm">
+        <div>
+            <div class="text-accent text-2xl font-bold mb-3">Balance+</div>
+            <p class="text-slate-400 leading-relaxed">Science-based nutrition and workouts for a healthier version of you.</p>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Support</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Follow Us</h4>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">f</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">in</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center text-slate-500 text-xs">
+        © 2026 Balance+ · All rights reserved
+    </div>
+</footer>
+  
+<script>
+ 
+document.addEventListener('DOMContentLoaded', () => {
+    const cupsContainer = document.getElementById('newCupsContainer');
+    const waterCountText = document.getElementById('waterCount');
+    let activeCups = 0;
+
+    // توليد 8 كؤوس احترافية
+    for (let i = 0; i < 8; i++) {
+        const cup = document.createElement('div');
+        cup.className = "cup cursor-pointer relative group flex flex-col items-center justify-end h-20";
+        
+        cup.innerHTML = `
+            <div class="water-vessel w-full h-20 border-2 border-slate-200 rounded-b-xl rounded-t-sm relative overflow-hidden transition-all duration-300 bg-slate-50 shadow-inner">
+                <div class="water-fill absolute bottom-0 left-0 w-full h-0 bg-cyan-400 transition-all duration-500 ease-in-out"></div>
+                <div class="water-surface absolute bottom-0 left-0 w-full h-1 bg-white/40 transition-all duration-500 opacity-0"></div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-300 mt-2 uppercase">Cup ${i+1}</span>
+        `;
+        
+        cup.onclick = () => {
+            activeCups = (i + 1 === activeCups) ? i : i + 1;
+            updateWaterUI();
+        };
+        cupsContainer.appendChild(cup);
+    }
+
+    function updateWaterUI() {
+        const vessels = document.querySelectorAll('.water-vessel');
+        const fills = document.querySelectorAll('.water-fill');
+        const surfaces = document.querySelectorAll('.water-surface');
+
+        vessels.forEach((vessel, i) => {
+            if (i < activeCups) {
+                setTimeout(() => {
+                    fills[i].style.height = "100%";
+                    vessel.style.borderColor = "#22D3EE"; 
+                    vessel.style.backgroundColor = "transparent";
+                    surfaces[i].style.opacity = "1";
+                    
+                    vessel.classList.add('scale-105');
+                    setTimeout(() => vessel.classList.remove('scale-105'), 200);
+                }, i * 100); // 100ms فرق بين كل كأس والآخر
+            } else {
+                fills[i].style.height = "0%";
+                vessel.style.borderColor = "#F1F5F9";
+                vessel.style.backgroundColor = "#F8FAFC";
+                surfaces[i].style.opacity = "0";
+            }
+        });
+        waterCountText.innerText = activeCups;
+    }
+});
+// 2. منطق إظهار الوجبات الكاملة (Toggle Menu)
+const viewMenuBtn = document.getElementById('viewMenuBtn');
+const extraMeals = document.querySelectorAll('.extra-meal');
+
+if (viewMenuBtn) {
+    viewMenuBtn.addEventListener('click', () => {
+        extraMeals.forEach(meal => {
+            meal.classList.toggle('hidden');
+        });
+        
+        // تغيير نص الزر بناءً على الحالة
+        const isHidden = extraMeals[0].classList.contains('hidden');
+        viewMenuBtn.innerText = isHidden ? 'View Full Menu' : 'Show Less';
+    });
+}
+    // 3. بيانات ومنطق الوصفات
+    const recipes = {
+        breakfast: {
+            title: "Blueberry Protein Oats",
+            img: "../images/altumcode-BT-Cx1n1LXA-unsplash.jpg",
+            desc: "Mix 1/2 cup rolled oats with 1 cup almond milk and a scoop of protein powder. Top with fresh blueberries, chia seeds, and a drizzle of honey."
+        },
+        lunch: {
+            title: "Grilled Chicken Power Bowl",
+            img: "../images/sumit-bhatia-g7WrssBb1Ak-unsplash.jpg",
+            desc: "Grilled chicken breast over a bed of quinoa, roasted sweet potatoes, and fresh kale. Served with a lemon-tahini dressing."
+        },
+        dinner: {
+            title: "Lemon Garlic Salmon",
+            img: "../images/karolina-kolodziejczak-Qf-gqJSWFYQ-unsplash.jpg",
+            desc: "Salmon fillet seasoned with garlic and lemon, baked until tender. Accompanied by steamed asparagus and brown rice."
+        },
+        snack: {
+            title: "Nuts & Berry Mix",
+            img: "../images/maksim-shutov-pUa1On18Jno-unsplash.jpg",
+            desc: "A balanced mix of raw almonds, walnuts, and dried cranberries to keep you fueled between meals."
+        }
+    };
+
+    function showRecipe(type) {
+        const modal = document.getElementById('recipeModal');
+        const content = document.getElementById('modalContent');
+        const recipe = recipes[type];
+
+        content.innerHTML = `
+            <div class="mb-6 h-56 overflow-hidden rounded-3xl shadow-lg">
+                <img src="${recipe.img}" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-2xl font-black text-slate-800 mb-4">${recipe.title}</h2>
+            <div class="bg-slate-50 p-6 rounded-2xl mb-6">
+                <p class="text-slate-600 text-sm leading-relaxed font-medium italic">"${recipe.desc}"</p>
+            </div>
+            <button onclick="closeRecipe()" class="w-full py-4 bg-blue-600 text-white rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] shadow-xl shadow-blue-200">Got it!</button>
+        `;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('recipe-modal-active');
+    }
+
+    function closeRecipe() {
+        const modal = document.getElementById('recipeModal');
+        modal.classList.add('hidden');
+        document.body.classList.remove('recipe-modal-active');
+    }
+
+</script>
+</body>
+</html>

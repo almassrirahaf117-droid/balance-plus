@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Balance+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        primaryDark: '#07505A',
+                        accent: '#6FCF97',
+                        bg: '#F6FBFC',
+                    },
+                    borderRadius: { '4xl': '2rem' },
+                    boxShadow: { 'custom': '0 2px 12px rgba(11, 107, 122, 0.08)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hamburger span { display: block; width: 24px; height: 2px; background: #0B6B7A; transition: 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        
+        .fade-in { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-bg overflow-x-hidden flex flex-col min-h-screen">
+ <nav class="sticky top-0 z-[1000] bg-white/80 backdrop-blur-md shadow-custom border-b border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary tracking-tight italic  decoration-accent">Balance+</div>
+            
+            <button id="hamburger" class="md:hidden flex flex-col gap-1.5 focus:outline-none hamburger">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul id="navLinks" class="hidden md:flex items-center gap-8 font-medium text-slate-700">
+                <li><a href="index.html#home" class="hover:text-primary transition-all relative group">Home<span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a></li>
+                <li><a href="index.html#about" class="hover:text-primary transition-all relative group">About<span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a></li>
+                <li><a href="index.html#services" class="hover:text-primary transition-all relative group">Services<span class="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a></li>
+                <li class="flex items-center gap-4 ml-4">
+                    <a href="login.html" class="px-5 py-2 text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition-all text-sm font-bold">Log in</a>
+                    <a href="signup.html" class="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primaryDark shadow-md transition-all text-sm font-bold border-2 border-primary">Sign up</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="mobileMenu" class="hidden absolute top-[72px] left-0 right-0 bg-white border-b border-slate-100 px-6 py-8 space-y-4 shadow-xl md:hidden">
+            <a href="index.html#home" class="block text-lg font-semibold text-slate-700">Home</a>
+            <a href="index.html#about" class="block text-lg font-semibold text-slate-700">About</a>
+            <a href="index.html#services" class="block text-lg font-semibold text-slate-700">Services</a>
+            <div class="flex flex-col gap-3 pt-4 border-t">
+                <a href="login.html" class="w-full py-3 text-center border-2 border-primary text-primary rounded-xl font-bold">Log in</a>
+                <a href="signup.html" class="w-full py-3 text-center bg-primary text-white rounded-xl font-bold">Sign up</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-grow flex items-center justify-center py-16 px-6">
+        <div class="w-full max-w-[480px] fade-in">
+            <div class="bg-white p-10 rounded-4xl shadow-xl shadow-slate-200/50 border border-slate-50 relative">
+                
+                <div id="loginAlert" class="hidden mb-6 p-4 rounded-xl bg-red-50 text-red-600 text-xs font-bold border border-red-100 flex items-center gap-3 italic">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span id="errorText">Invalid email or password</span>
+                </div>
+
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl font-black text-primary mb-2 tracking-tight">Welcome Back</h1>
+                    <p class="text-slate-400 italic">Enter your details to continue your journey</p>
+                </div>
+
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Email Address</label>
+                        <div class="relative">
+                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <input type="email" id="email" class="w-full pl-12 pr-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:border-primary focus:outline-none transition-all placeholder:text-slate-300" placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2 ml-1">
+                            <label class="text-[10px] font-black uppercase tracking-widest text-slate-400">Password</label>
+                            <a href="#" class="text-[10px] font-bold text-primary hover:underline">Forgot?</a>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            <input type="password" id="password" class="w-full pl-12 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:border-primary focus:outline-none transition-all placeholder:text-slate-300" placeholder="••••••••">
+                            <button type="button" id="togglePass" class="absolute right-5 top-1/2 -translate-y-1/2 text-slate-300 hover:text-slate-500">
+                                <i class="fa-solid fa-eye" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 accent-primary rounded">
+                        <span class="text-xs font-bold text-slate-500 italic">Remember me on this device</span>
+                    </label>
+
+                    <button type="submit" class="w-full py-4 bg-primary text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-primaryDark transition-all shadow-lg shadow-teal-100 active:scale-[0.98]">
+                        Log In
+                    </button>
+                </form>
+
+                <p class="text-center mt-10 text-sm font-medium text-slate-500">
+                    New to Balance+? 
+                    <a href="signup.html" class="text-primary font-black hover:underline ml-1">Create Account</a>
+                </p>
+            </div>
+        </div>
+    </main>
+  <footer class="bg-[#0F172A] text-white pt-16 pb-8 mt-auto">
+    <div class="max-w-[1100px] mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-10 text-sm">
+        <div>
+            <div class="text-accent text-2xl font-bold mb-3">Balance+</div>
+            <p class="text-slate-400 leading-relaxed">Science-based nutrition and workouts for a healthier version of you.</p>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Support</h4>
+            <ul class="text-slate-400 space-y-3">
+                <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold mb-5 uppercase tracking-wider text-xs">Follow Us</h4>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">f</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">in</a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-white/5 pt-8 text-center text-slate-500 text-xs">
+        © 2026 Balance+ · All rights reserved
+    </div>
+</footer>
+
+<script>
+    // 1. تعريف العناصر الأساسية
+    const loginForm = document.getElementById('loginForm');
+    const loginAlert = document.getElementById('loginAlert');
+    const errorText = document.getElementById('errorText');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const togglePass = document.getElementById('togglePass');
+    const passInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    // 2. التحكم في القائمة الجانبية للموبايل (Hamburger Menu)
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // 3. إظهار وإخفاء كلمة المرور (Password Toggle)
+    if (togglePass && passInput) {
+        togglePass.addEventListener('click', () => {
+            const isPassword = passInput.type === 'password';
+            passInput.type = isPassword ? 'text' : 'password';
+            
+            // تغيير شكل الأيقونة
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
+        });
+    }
+
+    // 4. وظيفة إظهار رسائل الخطأ بتأثير اهتزاز (Shake Effect)
+    function showError(msg) {
+        errorText.innerText = msg;
+        loginAlert.classList.remove('hidden');
+        
+        // إضافة أنيميشن بسيط للتنبيه
+        loginAlert.classList.add('animate-bounce');
+        setTimeout(() => loginAlert.classList.remove('animate-bounce'), 500);
+    }
+
+    // 5. معالجة إرسال النموذج (Form Submission)
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // منع الصفحة من إعادة التحميل
+        
+        // جلب القيم من الحقول
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const rememberMe = document.querySelector('input[type="checkbox"]').checked;
+
+        // 6. منطق التحقق (Validation Logic)
+        if (!email || !password) {
+            showError("All fields are required. Please try again.");
+            return;
+        }
+
+        if (!email.includes('@') || email.length < 5) {
+            showError("Please enter a valid email address.");
+            return;
+        }
+
+        if (password.length < 8) {
+            showError("Password must be at least 8 characters long.");
+            return;
+        }
+
+        // 7. محاكاة النجاح (Success Action)
+        // إخفاء رسائل الخطأ إن وجدت
+        loginAlert.classList.add('hidden');
+
+        // تخزين حالة الدخول في ذاكرة المتصفح
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        // (اختياري) تخزين اسم المستخدم أو الإيميل ليظهر في البروفايل لاحقاً
+        localStorage.setItem('userEmail', email);
+
+        // إظهار رسالة نجاح ثم الانتقال
+        alert("Login Successful! Welcome to Balance+");
+        
+        // الانتقال للصفحة الرئيسية
+        window.location.href = "home.html";
+    });
+</script>
+</body>
+</html>

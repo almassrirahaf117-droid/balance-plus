@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ Admin | Manage Daily Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        bgBody: '#F8FAFC',
+                        sidebarText: '#64748B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        .nav-active { background-color: #F1F5F9; color: #0B6B7A !important; }
+        .table-row-hover:hover { background-color: #F8FAFC; transform: scale(1.002); }
+    </style>
+</head>
+<body class="bg-bgBody h-screen flex overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full shrink-0">
+        <div class="p-6">
+            <h1 class="text-xl font-bold text-primary tracking-tight">Balance+</h1>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Admin Portal</p>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1 overflow-y-auto mt-4">
+      <!-- <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"> -->
+                              <a href="admaindash.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+
+        <i class="fa-solid fa-table-cells-large text-lg"></i> Dashboard
+            </a>
+
+            <div class="py-4 px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manage Content</div>
+
+            <div class="space-y-1">
+            <a href="adminrecipes.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+
+                    <i class="fa-solid fa-dollar-sign w-5"></i> Manage Recipes
+                </a>
+                <div class="pl-12 space-y-2 pb-2">
+                    <a href="#" data-cat="breakfast" class="block text-sm text-sidebarText hover:text-primary transition-colors">Breakfast</a>
+                    <a href="#" data-cat="lunch" class="block text-sm text-sidebarText hover:text-primary transition-colors">Lunch</a>
+                    <a href="#" data-cat="dinner" class="block text-sm text-sidebarText hover:text-primary transition-colors">Dinner</a>
+                    <a href="#" data-cat="snack" class="block text-sm text-sidebarText hover:text-primary transition-colors">Snack</a>
+                </div>
+            </div>
+
+            <a href="admainwork.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-bolt-lightning w-5"></i> Manage Workouts
+            </a>
+              <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-calendar w-5"></i> Daily Wellness Plan
+            </a>
+            <a href="admintips.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-circle-question w-5"></i> Manage Health Tips
+            </a>
+            <a href="admindrink.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-droplet w-5"></i> Manage Drink Water
+            </a>
+         
+        </nav>
+
+        <div class="p-6 border-t border-slate-100">
+            <a href="#" class="flex items-center gap-3 text-red-500 font-bold text-sm hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+    </aside>
+ <div class="flex-1 flex flex-col min-w-0">
+          <header class="h-20 bg-white border-b border-slate-100 px-8 flex items-center justify-between shrink-0">
+            <div class="relative w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" placeholder="Search..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-11 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/10 transition-all">
+            </div>
+
+             <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center relative text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">3</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-12">
+            <div class="max-w-6xl mx-auto flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-800 tracking-tight">Configure 6-Day Cycles</h2>
+                    <p class="text-slate-400 text-xs font-medium mt-2 italic">Assign meals and health tips for each daily sequence.</p>
+                </div>
+               
+            </div>
+
+            <div class="max-w-6xl mx-auto bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] border-b border-slate-100 bg-slate-50/30">
+                            <th class="px-8 py-7">Day Cycle</th>
+                            <th class="px-8 py-7">Meal Sequence (B, L, D, S)</th>
+                            <th class="px-8 py-7">Associated Tip</th>
+                            <th class="px-8 py-7 text-center">Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dailyPlansBody" class="divide-y divide-slate-50">
+                        </tbody>
+                </table>
+            </div>
+              <div class="flex justify-center p-10 border-t border-slate-50">
+                   <button onclick="addNewPlan()" class="bg-primary text-white px-12 py-4 rounded-[1.5rem] font-bold text-[12px] uppercase tracking-[0.15em] shadow-2xl shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-3">
+    <div class="bg-white/20 w-6 h-6 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-plus text-[10px]"></i>
+    </div>
+    Add New Daily Plan
+</button>
+                </div>
+        </main>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const allRecipes = {
+        breakfast: [
+            { name: "Blueberry Oatmeal", nutrients: "Prot: 10g | Carbs: 45g | Fats: 7g", cals: "320 kcal", img: "../images/altumcode-BT-Cx1n1LXA-unsplash.jpg" },
+            { name: "Spinach Omelet", nutrients: "Prot: 18g | Carbs: 15g | Fats: 14g", cals: "280 kcal", img: "../images/alimentos-fotogenicos-I7-KczdRauI-unsplash.jpg" },
+            { name: "Yogurt Parfait", nutrients: "Prot: 15g | Carbs: 30g | Fats: 5g", cals: "250 kcal", img: "../images/alondra-lucia-VnXAdRS6Yt4-unsplash.jpg" },
+            { name: "Avocado Toast", nutrients: "Prot: 8g | Carbs: 35g | Fats: 18g", cals: "310 kcal", img: "../images/imad-786-w1NiWDrp68M-unsplash.jpg" },
+            { name: "Banana Pancakes", nutrients: "Prot: 12g | Carbs: 40g | Fats: 10g", cals: "290 kcal", img: "../images/eiliv-aceron-exyTIrXyqm0-unsplash.jpg" }
+        ],
+        lunch: [
+            { name: "Grilled Chicken Bowl", nutrients: "Prot: 40g | Carbs: 40g | Fats: 12g", cals: "450 kcal", img: "../images/sumit-bhatia-g7WrssBb1Ak-unsplash.jpg" },
+            { name: "Baked Salmon", nutrients: "Prot: 35g | Carbs: 5g | Fats: 22g", cals: "400 kcal", img: "../images/thembi-johnson-HIFIN24HB7k-unsplash.jpg" },
+            { name: "Mediterranean Salad", nutrients: "Prot: 12g | Carbs: 45g | Fats: 9g", cals: "320 kcal", img: "../images/declan-sun-TsPlj-rqU9g-unsplash.jpg" },
+            { name: "Lentil Soup", nutrients: "Prot: 18g | Carbs: 40g | Fats: 4g", cals: "280 kcal", img: "../images/elena-leya-_jyB1ndDFQE-unsplash.jpg" }
+        ],
+        dinner: [
+            { name: "Tomato Basil Pasta", nutrients: "Prot: 12g | Carbs: 60g | Fats: 8g", cals: "350 kcal", img: "../images/karolina-kolodziejczak-Qf-gqJSWFYQ-unsplash.jpg" },
+            { name: "Stuffed Potato", nutrients: "Prot: 10g | Carbs: 55g | Fats: 2g", cals: "300 kcal", img: "../images/david-todd-mccarty-IzJTWRzipGc-unsplash.jpg" },
+            { name: "Shrimp 'Rice'", nutrients: "Prot: 25g | Carbs: 10g | Fats: 6g", cals: "250 kcal", img: "../images/diego-arenas-de-rodrigo-kPAhQN-vxYg-unsplash.jpg" },
+            { name: "Tofu Buddha Bowl", nutrients: "Prot: 20g | Carbs: 12g | Fats: 15g", cals: "270 kcal", img: "../images/pexels-cottonbro-3297367.jpg" }
+        ],
+        snack: [
+            { name: "Apple & Nut Butter", nutrients: "Prot: 4g | Carbs: 20g | Fats: 8g", cals: "180 kcal", img: "../images/cgdsro-food-3126525_1280.jpg" },
+            { name: "Mixed Nuts", nutrients: "Prot: 5g | Carbs: 6g | Fats: 14g", cals: "160 kcal", img: "../images/maksim-shutov-pUa1On18Jno-unsplash.jpg" },
+            { name: "Carrots & Hummus", nutrients: "Prot: 3g | Carbs: 15g | Fats: 6g", cals: "120 kcal", img: "../images/corey-watson-ArGWd4sK6RM-unsplash.jpg" },
+            { name: "Dark Chocolate", nutrients: "Prot: 2g | Carbs: 12g | Fats: 11g", cals: "150 kcal", img: "../images/tetiana-bykovets-YemxYB75xvI-unsplash.jpg" }
+        ]
+    };
+
+    const allTips = [
+        { title: "Hydration First", icon: "fa-droplet", color: "text-blue-500", bg: "bg-blue-50" },
+        { title: "Quality Sleep", icon: "fa-moon", color: "text-indigo-500", bg: "bg-indigo-50" },
+        { title: "Fiber intake", icon: "fa-leaf", color: "text-emerald-500", bg: "bg-emerald-50" },
+        { title: "Active Breaks", icon: "fa-person-walking", color: "text-orange-500", bg: "bg-orange-50" },
+        { title: "Mindful Eating", icon: "fa-utensils", color: "text-rose-500", bg: "bg-rose-50" },
+        { title: "Consistency", icon: "fa-chart-line", color: "text-primary", bg: "bg-teal-50" }
+    ];
+
+    // 2. دالة عرض الجداول
+    function renderPlans() {
+        const dailyPlansBody = document.getElementById('dailyPlansBody');
+        if (!dailyPlansBody) return;
+        dailyPlansBody.innerHTML = ''; 
+
+        for (let i = 0; i < 6; i++) {
+            const b = allRecipes.breakfast[i % allRecipes.breakfast.length];
+            const l = allRecipes.lunch[i % allRecipes.lunch.length];
+            const d = allRecipes.dinner[i % allRecipes.dinner.length];
+            const s = allRecipes.snack[i % allRecipes.snack.length];
+            const tip = allTips[i % allTips.length];
+
+            const row = `
+                <tr class="group transition-all hover:bg-slate-50/40" id="row-${i}">
+                    <td class="px-8 py-8 text-xs font-black text-slate-800 plan-name">PLAN DAY 0${i + 1}</td>
+                    <td class="px-8 py-8">
+                        <div class="flex gap-2">
+                            <img src="${b.img}" title="Breakfast: ${b.name}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help b-img">
+                            <img src="${l.img}" title="Lunch: ${l.name}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help l-img">
+                            <img src="${d.img}" title="Dinner: ${d.name}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help d-img">
+                            <img src="${s.img}" title="Snack: ${s.name}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help s-img">
+                        </div>
+                    </td>
+                    <td class="px-8 py-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg ${tip.bg} flex items-center justify-center shrink-0">
+                                <i class="fa-solid ${tip.icon} ${tip.color} text-[10px]"></i>
+                            </div>
+                            <span class="text-[11px] font-bold text-slate-600">${tip.title}</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6">
+                        <div class="flex justify-end gap-2">
+                            <button onclick="handleEdit(${i})" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-100 text-slate-400 hover:text-primary transition-all">
+                                <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+                            </button>
+                            <button onclick="handleDelete(${i})" class="w-9 h-9 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all">
+                                <i class="fa-solid fa-trash-can text-[10px]"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+            dailyPlansBody.innerHTML += row;
+        }
+    }
+
+    // 3. دالة الحذف
+    function handleDelete(index) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You are about to delete this daily plan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0B6B7A',
+            cancelButtonColor: '#94A3B8',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const element = document.getElementById(`row-${index}`);
+                if(element) element.remove();
+                Swal.fire({ title: 'Deleted!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+            }
+        });
+    }
+
+    // 4. دالة التعديل (تشمل السناك والاسم والوجبات)
+    function handleEdit(dayIndex) {
+        const bCurrent = allRecipes.breakfast[dayIndex % allRecipes.breakfast.length];
+        const lCurrent = allRecipes.lunch[dayIndex % allRecipes.lunch.length];
+        const dCurrent = allRecipes.dinner[dayIndex % allRecipes.dinner.length];
+        const sCurrent = allRecipes.snack[dayIndex % allRecipes.snack.length];
+
+        Swal.fire({
+            title: `<span class="text-slate-800 font-black">Edit Daily Plan</span>`,
+            html: `
+                <div class="flex flex-col gap-4 text-left mt-4 overflow-x-hidden">
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Plan Title</label>
+                        <input id="swal-input-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none" value="PLAN DAY 0${dayIndex + 1}">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Breakfast</label>
+                        <select id="swal-input-b" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none">
+                            ${allRecipes.breakfast.map(r => `<option value="${r.name}" data-img="${r.img}" ${r.name === bCurrent.name ? 'selected' : ''}>${r.name}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Lunch</label>
+                        <select id="swal-input-l" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none">
+                            ${allRecipes.lunch.map(r => `<option value="${r.name}" data-img="${r.img}" ${r.name === lCurrent.name ? 'selected' : ''}>${r.name}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Dinner</label>
+                        <select id="swal-input-d" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none">
+                            ${allRecipes.dinner.map(r => `<option value="${r.name}" data-img="${r.img}" ${r.name === dCurrent.name ? 'selected' : ''}>${r.name}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Snack</label>
+                        <select id="swal-input-s" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none">
+                            ${allRecipes.snack.map(r => `<option value="${r.name}" data-img="${r.img}" ${r.name === sCurrent.name ? 'selected' : ''}>${r.name}</option>`).join('')}
+                        </select>
+                    </div>
+                </div>`,
+            showCancelButton: true,
+            confirmButtonColor: '#0B6B7A',
+            confirmButtonText: 'Save Changes',
+            preConfirm: () => {
+                const bS = document.getElementById('swal-input-b');
+                const lS = document.getElementById('swal-input-l');
+                const dS = document.getElementById('swal-input-d');
+                const sS = document.getElementById('swal-input-s');
+                return {
+                    newName: document.getElementById('swal-input-name').value,
+                    bImg: bS.options[bS.selectedIndex].getAttribute('data-img'), bName: bS.value,
+                    lImg: lS.options[lS.selectedIndex].getAttribute('data-img'), lName: lS.value,
+                    dImg: dS.options[dS.selectedIndex].getAttribute('data-img'), dName: dS.value,
+                    sImg: sS.options[sS.selectedIndex].getAttribute('data-img'), sName: sS.value
+                }
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const row = document.getElementById(`row-${dayIndex}`);
+                row.querySelector('.plan-name').innerText = result.value.newName;
+                row.querySelector('.b-img').src = result.value.bImg; row.querySelector('.b-img').title = result.value.bName;
+                row.querySelector('.l-img').src = result.value.lImg; row.querySelector('.l-img').title = result.value.lName;
+                row.querySelector('.d-img').src = result.value.dImg; row.querySelector('.d-img').title = result.value.dName;
+                row.querySelector('.s-img').src = result.value.sImg; row.querySelector('.s-img').title = result.value.sName;
+
+                Swal.fire({ title: 'Updated!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+            }
+        });
+    }
+
+    // 5. التشغيل عند التحميل
+    document.addEventListener('DOMContentLoaded', renderPlans);
+    // 6. دالة إضافة خطة يومية جديدة
+window.addNewPlan = function() {
+    // تجهيز خيارات الوجبات من البيانات الموجودة
+    const bOptions = allRecipes.breakfast.map(r => `<option value="${r.name}" data-img="${r.img}">${r.name}</option>`).join('');
+    const lOptions = allRecipes.lunch.map(r => `<option value="${r.name}" data-img="${r.img}">${r.name}</option>`).join('');
+    const dOptions = allRecipes.dinner.map(r => `<option value="${r.name}" data-img="${r.img}">${r.name}</option>`).join('');
+    const sOptions = allRecipes.snack.map(r => `<option value="${r.name}" data-img="${r.img}">${r.name}</option>`).join('');
+
+    Swal.fire({
+        title: '<span class="text-slate-800 font-black">Add New Daily Plan</span>',
+        html: `
+            <div class="flex flex-col gap-4 text-left mt-4 overflow-x-hidden">
+                <div>
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Plan Title</label>
+                    <input id="add-plan-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-sm focus:outline-none" placeholder="e.g. PLAN DAY 07">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Breakfast</label>
+                        <select id="add-plan-b" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-[11px] focus:outline-none">${bOptions}</select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Lunch</label>
+                        <select id="add-plan-l" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-[11px] focus:outline-none">${lOptions}</select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Dinner</label>
+                        <select id="add-plan-d" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-[11px] focus:outline-none">${dOptions}</select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider ml-1">Snack</label>
+                        <select id="add-plan-s" class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-[11px] focus:outline-none">${sOptions}</select>
+                    </div>
+                </div>
+            </div>`,
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        confirmButtonText: 'Create Plan',
+        preConfirm: () => {
+            const name = document.getElementById('add-plan-name').value;
+            if (!name) return Swal.showValidationMessage('Please enter a title');
+            
+            const bS = document.getElementById('add-plan-b');
+            const lS = document.getElementById('add-plan-l');
+            const dS = document.getElementById('add-plan-d');
+            const sS = document.getElementById('add-plan-s');
+
+            return {
+                title: name,
+                bImg: bS.options[bS.selectedIndex].getAttribute('data-img'), bName: bS.value,
+                lImg: lS.options[lS.selectedIndex].getAttribute('data-img'), lName: lS.value,
+                dImg: dS.options[dS.selectedIndex].getAttribute('data-img'), dName: dS.value,
+                sImg: sS.options[sS.selectedIndex].getAttribute('data-img'), sName: sS.value
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const tbody = document.getElementById('dailyPlansBody');
+            const newIndex = tbody.children.length; // استخدام عدد الصفوف الحالية كـ ID
+            const tip = allTips[newIndex % allTips.length]; // نصيحة تلقائية
+
+            const newRow = `
+                <tr class="group transition-all hover:bg-slate-50/40" id="row-${newIndex}">
+                    <td class="px-8 py-8 text-xs font-black text-slate-800 plan-name">${result.value.title}</td>
+                    <td class="px-8 py-8">
+                        <div class="flex gap-2">
+                            <img src="${result.value.bImg}" title="Breakfast: ${result.value.bName}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help b-img">
+                            <img src="${result.value.lImg}" title="Lunch: ${result.value.lName}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help l-img">
+                            <img src="${result.value.dImg}" title="Dinner: ${result.value.dName}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help d-img">
+                            <img src="${result.value.sImg}" title="Snack: ${result.value.sName}" class="w-10 h-10 rounded-xl object-cover ring-2 ring-slate-100 hover:scale-110 transition cursor-help s-img">
+                        </div>
+                    </td>
+                    <td class="px-8 py-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg ${tip.bg} flex items-center justify-center shrink-0">
+                                <i class="fa-solid ${tip.icon} ${tip.color} text-[10px]"></i>
+                            </div>
+                            <span class="text-[11px] font-bold text-slate-600">${tip.title}</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6">
+                        <div class="flex justify-end gap-2">
+                            <button onclick="handleEdit(${newIndex})" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-100 text-slate-400 hover:text-primary transition-all">
+                                <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+                            </button>
+                            <button onclick="handleDelete(${newIndex})" class="w-9 h-9 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all">
+                                <i class="fa-solid fa-trash-can text-[10px]"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+            
+            tbody.innerHTML += newRow;
+            Swal.fire({ title: 'Plan Created!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+</script>
+
+</body>
+</html>

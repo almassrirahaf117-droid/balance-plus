@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reset Password | Balance+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A', // اللون التيلي الغامق
+                        'primary-light': '#E8F4F5', // لون الخلفية الفاتح
+                        'admin-badge': '#D9EBED',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#F0F9FA] min-h-screen flex items-center justify-center p-6 font-sans">
+
+    <div class="bg-white w-full max-w-lg rounded-[32px] shadow-[0_20px_50px_rgba(11,107,122,0.1)] overflow-hidden">
+        
+        <div class="pt-12 pb-8 px-8 text-center flex flex-col items-center">
+            <h1 class="text-3xl font-bold text-primary mb-1">Balance+</h1>
+            <p class="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-6">Admin Portal</p>
+            
+            <div class="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 border border-primary/10">
+                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+
+            <div class="inline-flex items-center gap-2 bg-admin-badge/50 text-primary px-4 py-1.5 rounded-full text-xs font-bold border border-primary/10 mb-8">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                Administrator Access
+            </div>
+
+            <h2 class="text-2xl font-bold text-[#0F172A] mb-3">Admin Reset Password</h2>
+            <p class="text-slate-400 text-sm">Enter your admin email to receive a secure password reset link.</p>
+            
+            <div class="w-12 h-1 bg-sky-400 rounded-full mt-8"></div>
+        </div>
+
+        <div class="px-10 pb-12">
+            <form id="resetForm" class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-2 ml-1 uppercase">Admin Email Address</label>
+                    <div class="relative">
+                        <input type="email" 
+                            class="w-full border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder:text-slate-300" 
+                            placeholder="admin@balanceplus.com" required>
+                        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-[#06545F] hover:bg-primary text-white font-bold py-4 rounded-xl shadow-lg transition-all active:scale-[0.98]">
+                    Send Reset Link
+                </button>
+            </form>
+
+            <div id="successMessage" class="hidden text-center py-4 text-emerald-600 font-medium text-sm">
+                ✓ Reset link has been sent to your email.
+            </div>
+
+            <div class="mt-6 bg-[#F0F9FA] border border-sky-100 p-4 rounded-xl flex items-start gap-3">
+                <svg class="w-5 h-5 text-sky-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p class="text-[12px] text-slate-500 leading-relaxed">
+                    If you don't receive the reset email within 5 minutes, please contact the system administrator or check your spam folder.
+                </p>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="adminlogin.html" class="text-primary font-bold text-sm inline-flex items-center gap-2 hover:underline">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Back to Admin Login
+                </a>
+            </div>
+
+            <div class="mt-8 bg-red-50 border border-red-100 p-4 rounded-xl flex items-start gap-3">
+                <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <p class="text-[12px] text-red-700 font-bold leading-tight">
+                    Authorized administrators only. All password reset attempts are logged and monitored.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('resetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

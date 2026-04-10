@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Balance+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        'primary-dark': '#07505A',
+                        accent: '#6FCF97',
+                    },
+                    backgroundImage: {
+                        'admin-gradient': 'linear-gradient(135deg, #0B6B7A 0%, #07505A 100%)',
+                        'body-gradient': 'linear-gradient(135deg, #F6FBFC 0%, #E0F2F4 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-body-gradient min-h-screen flex items-center justify-center p-5 relative overflow-hidden font-sans">
+
+    <div class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-[10%] -left-[5%] w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-[1100px] w-full bg-white rounded-[24px] shadow-[0_20px_60px_rgba(11,107,122,0.15)] overflow-hidden grid grid-cols-1 md:grid-cols-2 relative z-10">
+        
+        <div class="bg-admin-gradient p-10 md:p-14 flex flex-col justify-center items-center text-center relative overflow-hidden">
+            <div class="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full"></div>
+            <div class="absolute -bottom-16 -left-16 w-52 h-52 bg-white/5 rounded-full"></div>
+
+            <div class="relative z-10">
+                <div class="mb-10">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">Balance+</h1>
+                    <p class="text-white/80 font-medium">Admin Dashboard</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 max-w-[280px] mx-auto">
+                    <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 transition-all hover:bg-white/20 hover:-translate-y-1">
+                        <i class="fa-solid fa-utensils text-3xl text-white mb-2 block"></i>
+                        <span class="text-xs text-white/90 font-medium">Recipes</span>
+                    </div>
+                    <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 transition-all hover:bg-white/20 hover:-translate-y-1">
+                        <i class="fa-solid fa-dumbbell text-3xl text-white mb-2 block"></i>
+                        <span class="text-xs text-white/90 font-medium">Workouts</span>
+                    </div>
+                    <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 transition-all hover:bg-white/20 hover:-translate-y-1">
+                        <i class="fa-solid fa-calendar-check text-3xl text-white mb-2 block"></i>
+                        <span class="text-xs text-white/90 font-medium">Plans</span>
+                    </div>
+                    <div class="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 transition-all hover:bg-white/20 hover:-translate-y-1">
+                        <i class="fa-solid fa-users text-3xl text-white mb-2 block"></i>
+                        <span class="text-xs text-white/90 font-medium">Users</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-10 md:p-14 flex flex-col justify-center">
+            <div class="mb-10">
+                <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold mb-5">
+                    <i class="fa-solid fa-lock"></i>
+                    ADMIN ACCESS
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-3 tracking-tight">Admin Login</h2>
+                <p class="text-slate-500 text-sm leading-relaxed max-w-[400px]">
+                    Access the admin dashboard to manage recipes, workouts, health tips, and users.
+                </p>
+            </div>
+
+            <form id="adminLoginForm" class="space-y-5">
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-slate-700">Admin Email</label>
+                    <div class="relative group">
+                        <i class="fa-regular fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"></i>
+                        <input type="email" id="adminEmail" required placeholder="admin@balanceplus.com"
+                            class="w-full pl-12 pr-4 py-3.5 border-1.5 border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-4 focus:ring-primary/5 focus:border-primary transition-all bg-slate-50/50">
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-sm font-semibold text-slate-700">Password</label>
+                    <div class="relative group">
+                        <i class="fa-solid fa-shield-halved absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors"></i>
+                        <input type="password" id="adminPassword" required placeholder="••••••••"
+                            class="w-full pl-12 pr-4 py-3.5 border-1.5 border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-4 focus:ring-primary/5 focus:border-primary transition-all bg-slate-50/50">
+                    </div>
+                </div>
+
+                <div class="text-right">
+                    <a href="admaindash.html" class="text-sm font-semibold text-primary hover:text-primary-dark transition-colors">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-admin-gradient text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 transition-all uppercase tracking-wider text-sm">
+                    Login as Admin
+                </button>
+            </form>
+
+            <div class="mt-8 flex items-start gap-3 bg-red-50 border border-red-100 p-4 rounded-xl">
+                <i class="fa-solid fa-circle-exclamation text-red-500 mt-0.5"></i>
+                <p class="text-[12px] text-red-800 font-medium leading-relaxed">
+                    Authorized administrators only. All access is monitored and logged for security purposes.
+                </p>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="admaindash.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-primary transition-colors">
+                    <i class="fa-solid fa-arrow-left text-xs"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (email && password) {
+                // هان بتقدري تربطيها بصفحة الـ Dashboard تبعتك
+                alert('Redirecting to Admin Dashboard...');
+                window.location.href = 'admindash.html'; 
+            }
+        });
+    </script>
+</body>
+</html>

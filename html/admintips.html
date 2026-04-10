@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ | Health Tips Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        bgBody: '#F8FAFC',
+                        sidebarText: '#64748B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active {
+            background-color: #F1F5F9;
+            color: #0B6B7A !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-bgBody h-screen flex overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full shrink-0">
+        <div class="p-6">
+            <h1 class="text-xl font-bold text-primary tracking-tight">Balance+</h1>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Admin Portal</p>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1 overflow-y-auto mt-4">
+            <a href="admaindash.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-table-cells-large text-lg"></i> Dashboard
+            </a>
+
+            <div class="py-4 px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manage Content</div>
+
+            <div class="space-y-1">
+                <a href="adminrecipes.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                    <i class="fa-solid fa-utensils w-5"></i> Manage Recipes
+                </a>
+                <div class="pl-12 space-y-2 pb-2">
+                    <a href="#" data-cat="breakfast" class="block text-sm text-sidebarText hover:text-primary transition-colors">Breakfast</a>
+                    <a href="#" data-cat="lunch" class="block text-sm text-sidebarText hover:text-primary transition-colors">Lunch</a>
+                    <a href="#" data-cat="dinner" class="block text-sm text-sidebarText hover:text-primary transition-colors">Dinner</a>
+                    <a href="#" data-cat="snack" class="block text-sm text-sidebarText hover:text-primary transition-colors">Snack</a>
+                </div>
+            </div>
+
+            <a href="admainwork.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-bolt-lightning w-5"></i> Manage Workouts
+            </a>
+            <a href="admaindaily.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-calendar w-5"></i> Daily Wellness Plan
+            </a>
+            <a href="admintips.html" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-lightbulb w-5"></i> Manage Health Tips
+            </a>
+            <a href="admindrink.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-droplet w-5"></i> Manage Drink Water
+            </a>
+        </nav>
+
+        <div class="p-6 border-t border-slate-100">
+            <a href="#" class="flex items-center gap-3 text-red-500 font-bold text-sm hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+          <header class="h-20 bg-white border-b border-slate-100 px-8 flex items-center justify-between shrink-0">
+            <div class="relative w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" placeholder="Search..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-11 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/10 transition-all">
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center relative text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">3</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </header>
+       
+        <main class="flex-1 overflow-y-auto p-10">
+            <div id="randomTipContainer" class="max-w-4xl mx-auto mb-10 fade-in"></div>
+
+            <div class="max-w-6xl mx-auto text-center mb-10">
+                <h2 class="text-3xl font-black text-slate-800 tracking-tight">Health Tips Library</h2>
+                <p class="text-slate-400 text-sm font-medium mt-1 italic">Managing all active suggestions</p>
+            </div>
+
+            <div class="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100 bg-slate-50/30">
+                            <th class="px-8 py-6">Tip Detail</th>
+                            <th class="px-8 py-6">Category</th>
+                            <th class="px-8 py-6 text-center">Status</th>
+                            <th class="px-8 py-6 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tipsTableBody" class="divide-y divide-slate-50"></tbody>
+                </table>
+                
+                <div class="flex justify-center p-10 border-t border-slate-50">
+                  <button onclick="addNewTip()" class="bg-primary text-white px-12 py-4 rounded-[1.5rem] font-bold text-[12px] uppercase tracking-[0.15em] shadow-2xl shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-3">
+    <div class="bg-white/20 w-6 h-6 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-plus text-[10px]"></i>
+    </div>
+    Add New Tips
+</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const allTips = [
+            { title: "Hydration First", content: "Stay hydrated! Drinking water regularly helps maintain energy levels and digestion.", category: "Habits", icon: "fa-droplet", color: "text-blue-500", bg: "bg-blue-50" },
+            { title: "Quality Sleep", content: "Aim for 7-9 hours of sleep. It allows your body to repair tissues and recharge your brain.", category: "Recovery", icon: "fa-moon", color: "text-indigo-500", bg: "bg-indigo-50" },
+            { title: "Fiber intake", content: "Add more greens to your meals. Fiber improves digestion and keeps you full for longer.", category: "Nutrition", icon: "fa-leaf", color: "text-emerald-500", bg: "bg-emerald-50" },
+            { title: "Active Breaks", content: "Stand up and stretch every 45 minutes to improve blood circulation and reduce fatigue.", category: "Activity", icon: "fa-person-walking", color: "text-orange-500", bg: "bg-orange-50" },
+            { title: "Mindful Eating", content: "Eat slowly and chew your food well. This helps your brain recognize when you are full.", category: "Nutrition", icon: "fa-utensils", color: "text-rose-500", bg: "bg-rose-50" },
+            { title: "Consistency", content: "Small healthy choices every day lead to big results. Focus on progress, not perfection.", category: "Mindset", icon: "fa-chart-line", color: "text-primary", bg: "bg-teal-50" }
+        ];
+
+        function displayRandomTip() {
+            const container = document.getElementById('randomTipContainer');
+            const tip = allTips[Math.floor(Math.random() * allTips.length)];
+            container.innerHTML = `
+                <div class="bg-white p-8 rounded-[2rem] border border-primary/10 shadow-xl shadow-primary/5 flex items-center justify-between group hover:border-primary/30 transition-all">
+                    <div class="flex items-center gap-6">
+                        <div class="w-16 h-16 rounded-2xl ${tip.bg} ${tip.color} flex items-center justify-center text-2xl shadow-inner border border-white">
+                            <i class="fa-solid ${tip.icon}"></i>
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-1 block">Random Highlight</span>
+                            <h3 class="text-xl font-black text-slate-800">${tip.title}</h3>
+                            <p class="text-xs text-slate-500 font-medium italic mt-1">"${tip.content}"</p>
+                        </div>
+                    </div>
+                    <button onclick="displayRandomTip()" class="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 hover:bg-primary hover:text-white transition-all flex items-center justify-center">
+                        <i class="fa-solid fa-rotate"></i>
+                    </button>
+                </div>
+            `;
+        }
+function renderTips() {
+    const tbody = document.getElementById('tipsTableBody');
+    tbody.innerHTML = '';
+    allTips.forEach((tip, index) => {
+        const row = `
+            <tr class="hover:bg-slate-50/50 transition-colors group">
+                <td class="px-8 py-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 shrink-0 rounded-2xl ${tip.bg} flex items-center justify-center ${tip.color} text-lg shadow-sm border border-white group-hover:scale-110 transition-transform italic font-black">
+                            <i class="fa-solid ${tip.icon}"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm mb-1">${tip.title}</h4>
+                            <p class="text-[11px] text-slate-500 leading-relaxed max-w-md font-medium">${tip.content}</p>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-8 py-6">
+                    <span class="px-3 py-1 bg-slate-100 text-slate-500 text-[9px] font-black rounded-full uppercase tracking-wider border border-slate-200">${tip.category}</span>
+                </td>
+                <td class="px-8 py-6 text-center">
+                    <div class="flex items-center justify-center gap-1.5 text-[10px] font-bold text-emerald-500">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Visible
+                    </div>
+                </td>
+                <td class="px-8 py-6 text-right">
+                    <div class="flex justify-end gap-2">
+                        <button onclick="editTip(${index})" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-100 text-slate-400 hover:text-primary transition-all"><i class="fa-solid fa-pen text-[10px]"></i></button>
+                        <button onclick="deleteTip(${index})" class="w-9 h-9 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all"><i class="fa-solid fa-trash text-[10px]"></i></button>
+                    </div>
+                </td>
+            </tr>`;
+        tbody.innerHTML += row;
+    });
+}
+
+        window.onload = () => {
+            displayRandomTip();
+            renderTips();
+        };
+        // 1. دالة الحذف
+window.deleteTip = function(index) {
+    Swal.fire({
+        title: 'Delete Tip?',
+        text: "This insight will be removed from the library.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            allTips.splice(index, 1);
+            renderTips();
+            displayRandomTip(); // لتحديث النصيحة العشوائية العلوية
+            Swal.fire({ title: 'Deleted!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+
+// 2. دالة الإضافة
+window.addNewTip = function() {
+    Swal.fire({
+        title: 'Add New Health Tip',
+        html: `
+            <div class="flex flex-col gap-3 text-left mt-4">
+                <input id="tip-title" class="swal2-input m-0 w-full text-sm" placeholder="Tip Title">
+                <textarea id="tip-content" class="swal2-textarea m-0 w-full text-sm" placeholder="Tip Content..."></textarea>
+                <select id="tip-cat" class="swal2-input m-0 w-full text-sm">
+                    <option value="Nutrition">Nutrition</option>
+                    <option value="Habits">Habits</option>
+                    <option value="Recovery">Recovery</option>
+                    <option value="Activity">Activity</option>
+                    <option value="Mindset">Mindset</option>
+                </select>
+            </div>`,
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        preConfirm: () => {
+            const title = document.getElementById('tip-title').value;
+            if (!title) return Swal.showValidationMessage('Title is required');
+            return {
+                title: title,
+                content: document.getElementById('tip-content').value,
+                category: document.getElementById('tip-cat').value,
+                icon: "fa-lightbulb", // أيقونة افتراضية للجديد
+                color: "text-amber-500",
+                bg: "bg-amber-50"
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            allTips.push(result.value);
+            renderTips();
+            Swal.fire({ title: 'Added!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+
+// 3. دالة التعديل
+window.editTip = function(index) {
+    const tip = allTips[index];
+    Swal.fire({
+        title: 'Edit Health Tip',
+        html: `
+            <div class="flex flex-col gap-3 text-left mt-4">
+                <input id="edit-title" class="swal2-input m-0 w-full text-sm" value="${tip.title}">
+                <textarea id="edit-content" class="swal2-textarea m-0 w-full text-sm">${tip.content}</textarea>
+                <select id="edit-cat" class="swal2-input m-0 w-full text-sm">
+                    <option value="Nutrition" ${tip.category === 'Nutrition' ? 'selected' : ''}>Nutrition</option>
+                    <option value="Habits" ${tip.category === 'Habits' ? 'selected' : ''}>Habits</option>
+                    <option value="Recovery" ${tip.category === 'Recovery' ? 'selected' : ''}>Recovery</option>
+                    <option value="Activity" ${tip.category === 'Activity' ? 'selected' : ''}>Activity</option>
+                    <option value="Mindset" ${tip.category === 'Mindset' ? 'selected' : ''}>Mindset</option>
+                </select>
+            </div>`,
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        preConfirm: () => ({
+            ...tip,
+            title: document.getElementById('edit-title').value,
+            content: document.getElementById('edit-content').value,
+            category: document.getElementById('edit-cat').value
+        })
+    }).then((result) => {
+        if (result.isConfirmed) {
+            allTips[index] = result.value;
+            renderTips();
+            displayRandomTip();
+            Swal.fire({ title: 'Updated!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+    </script>
+</body>
+</html>

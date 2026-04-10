@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ | Admin Workouts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        bgBody: '#F8FAFC',
+                        sidebarText: '#64748B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active {
+            background-color: #F1F5F9;
+            color: #0B6B7A !important;
+        }
+    </style>
+</head>
+<body class="bg-bgBody h-screen flex overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full shrink-0">
+        <div class="p-6">
+            <h1 class="text-xl font-bold text-primary tracking-tight">Balance+</h1>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Admin Portal</p>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1 overflow-y-auto mt-4">
+      <!-- <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"> -->
+                              <a href="admaindash.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+
+        <i class="fa-solid fa-table-cells-large text-lg"></i> Dashboard
+            </a>
+
+            <div class="py-4 px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manage Content</div>
+
+            <div class="space-y-1">
+                            <!-- <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"> -->
+
+                <a href="adminrecipes.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                    <i class="fa-solid fa-dollar-sign w-5"></i> Manage Recipes
+                </a>
+                <div class="pl-12 space-y-2 pb-2">
+                    <a href="#" data-cat="breakfast" class="block text-sm text-sidebarText hover:text-primary transition-colors">Breakfast</a>
+                    <a href="#" data-cat="lunch" class="block text-sm text-sidebarText hover:text-primary transition-colors">Lunch</a>
+                    <a href="#" data-cat="dinner" class="block text-sm text-sidebarText hover:text-primary transition-colors">Dinner</a>
+                    <a href="#" data-cat="snack" class="block text-sm text-sidebarText hover:text-primary transition-colors">Snack</a>
+                </div>
+            </div>
+                            <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all">
+
+            <!-- <a href="#" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-bolt-lightning w-5"></i> -->Manage Workouts 
+            </a>
+            <a href="admaindaily.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-calendar w-5"></i> Daily Wellness Plan
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-circle-question w-5"></i> Manage Health Tips
+            </a>
+            <a href="admindrink.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-droplet w-5"></i> Manage Drink Water
+            </a>
+             <!-- <a href="#" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-book-open w-5"></i> Manage Browse Recipes
+            </a>-->
+        </nav>
+
+        <div class="p-6 border-t border-slate-100">
+            <a href="#" class="flex items-center gap-3 text-red-500 font-bold text-sm hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+        
+        <header class="h-20 bg-white border-b border-slate-100 px-8 flex items-center justify-between shrink-0">
+            <div class="relative w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" placeholder="Search..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-11 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/10 transition-all">
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center relative text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">3</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </header>
+
+  <main class="flex-1 overflow-y-auto p-10">
+    <div class="max-w-6xl mx-auto text-center mb-10">
+        <h2 id="currentWorkoutTitle" class="text-3xl font-black text-slate-800 tracking-tight">All Workouts</h2>
+        <p class="text-slate-400 text-sm font-medium mt-1 italic">Professional fitness training plans</p>
+    </div>
+
+    <div class="flex justify-center gap-3 mb-8">
+        <button data-filter="all" class="px-6 py-2 rounded-full text-xs font-bold transition-all bg-primary text-white">ALL</button>
+        <button data-filter="beginner" class="px-6 py-2 rounded-full text-xs font-bold transition-all text-slate-500 hover:bg-slate-50">BEGINNER</button>
+        <button data-filter="intermediate" class="px-6 py-2 rounded-full text-xs font-bold transition-all text-slate-500 hover:bg-slate-50">INTERMEDIATE</button>
+        <button data-filter="advanced" class="px-6 py-2 rounded-full text-xs font-bold transition-all text-slate-500 hover:bg-slate-50">ADVANCED</button>
+    </div>
+
+    <div class="bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="bg-slate-50/50 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                    <th class="px-8 py-6">Workout</th>
+                    <th class="px-8 py-6">Category & Stats</th>
+                    <th class="px-8 py-6 text-center">Energy Burn</th>
+                    <th class="px-8 py-6 text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody id="workoutTableBody"></tbody>
+        </table>
+
+        <div class="flex justify-center mt-12 pb-10">
+          <button onclick="addNewWorkout()" class="bg-primary text-white px-12 py-4 rounded-[1.5rem] font-bold text-[12px] uppercase tracking-[0.15em] shadow-2xl shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-3">
+    <div class="bg-white/20 w-6 h-6 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-plus text-[10px]"></i>
+    </div>
+    Add New Workout
+</button>
+        </div>
+    </div>
+</main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+   // 1. البيانات الكاملة
+const allWorkouts = [
+    { name: "Morning HIIT", level: "Intermediate", time: "30m", burn: "320 kcal", emoji: "🏃", bg: "bg-orange-50", desc: "High-intensity interval training" },
+    { name: "Yoga Flow", level: "Beginner", time: "45m", burn: "180 kcal", emoji: "🧘", bg: "bg-blue-50", desc: "Flexibility and mental clarity" },
+    { name: "Strength Power", level: "Advanced", time: "60m", burn: "480 kcal", emoji: "🏋️", bg: "bg-slate-100", desc: "Heavy lifting and muscle building" },
+    { name: "Core & Abs", level: "Intermediate", time: "25m", burn: "240 kcal", emoji: "🤸", bg: "bg-green-50", desc: "Core stability and strength" },
+    { name: "Evening Walk", level: "Beginner", time: "40m", burn: "200 kcal", emoji: "🚶", bg: "bg-emerald-50", desc: "Low-impact active recovery" },
+    { name: "Tabata Burn", level: "Advanced", time: "20m", burn: "400 kcal", emoji: "🔥", bg: "bg-red-50", desc: "Maximum intensity bursts" },
+    { name: "Pilates Sculpt", level: "Intermediate", time: "35m", burn: "220 kcal", emoji: "🧘‍♀️", bg: "bg-pink-50", desc: "Tone and sculpt muscles" },
+    { name: "Boxing Burn", level: "Advanced", time: "30m", burn: "450 kcal", emoji: "🥊", bg: "bg-gray-100", desc: "Cardio boxing and coordination" },
+    { name: "Deep Recovery", level: "Beginner", time: "20m", burn: "80 kcal", emoji: "☁️", bg: "bg-cyan-50", desc: "Deep static stretching" },
+    { name: "Leg Power", level: "Advanced", time: "50m", burn: "520 kcal", emoji: "🦵", bg: "bg-indigo-50", desc: "Explosive leg strength" },
+    { name: "Full Body Stretch", level: "Beginner", time: "15m", burn: "50 kcal", emoji: "🙆", bg: "bg-teal-50", desc: "Improve range of motion" },
+    { name: "Cycling Sprint", level: "Intermediate", time: "40m", burn: "380 kcal", emoji: "🚴", bg: "bg-violet-50", desc: "High energy cardio cycling" }
+];
+
+let currentFilter = 'all';
+
+// 2. دالة الرندر الأساسية
+window.renderWorkouts = function(filter = currentFilter) {
+    currentFilter = filter;
+    const tbody = document.getElementById('workoutTableBody');
+    const title = document.getElementById('currentWorkoutTitle');
+    if(!tbody) return;
+    
+    tbody.innerHTML = '';
+
+    const filteredData = filter === 'all' 
+        ? allWorkouts 
+        : allWorkouts.filter(w => w.level.toLowerCase() === filter.toLowerCase());
+
+    title.innerText = (filter === 'all' ? 'All' : filter) + " Workouts";
+
+    filteredData.forEach((workout) => {
+        const realIndex = allWorkouts.findIndex(w => w.name === workout.name);
+        
+        const row = `
+            <tr class="hover:bg-slate-50/50 transition-colors group border-b border-slate-50 last:border-0">
+                <td class="px-8 py-5">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl ${workout.bg} flex items-center justify-center text-xl shadow-sm border border-white group-hover:scale-110 transition-transform">
+                            ${workout.emoji}
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">${workout.name}</h4>
+                            <p class="text-[11px] text-slate-400 italic mt-0.5">${workout.desc}</p>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-8 py-5">
+                    <div class="flex flex-col gap-1.5">
+                        <span class="text-[9px] font-black text-primary uppercase bg-primary/5 px-2 py-0.5 rounded-md w-fit border border-primary/10">
+                            ${workout.level}
+                        </span>
+                        <div class="flex items-center gap-3 text-[10px] font-bold text-slate-400">
+                            <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-primary"></i> ${workout.time}</span>
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-fire text-primary"></i> ${workout.burn}</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-8 py-5 text-center font-black text-slate-600 text-xs uppercase tracking-tighter">
+                    ${workout.burn}
+                </td>
+                <td class="px-8 py-5">
+                    <div class="flex justify-end gap-2">
+                        <button onclick="editWorkout(${realIndex})" class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-100 text-slate-400 hover:text-primary transition-all">
+                            <i class="fa-solid fa-pen text-[10px]"></i>
+                        </button>
+                        <button onclick="deleteWorkout(${realIndex})" class="w-8 h-8 flex items-center justify-center rounded-lg bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all">
+                            <i class="fa-solid fa-trash text-[10px]"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>`;
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+}
+
+// 3. دالة التعديل (المفقودة سابقاً)
+window.editWorkout = function(index) {
+    const workout = allWorkouts[index];
+    Swal.fire({
+        title: 'Edit Workout',
+        html: `
+            <div class="flex flex-col gap-3 text-left mt-4">
+                <input id="edit-name" class="swal2-input m-0 w-full text-sm rounded-xl" value="${workout.name}">
+                <input id="edit-desc" class="swal2-input m-0 w-full text-sm rounded-xl" value="${workout.desc}">
+                <div class="grid grid-cols-2 gap-2">
+                    <select id="edit-level" class="swal2-input m-0 w-full text-sm rounded-xl">
+                        <option value="Beginner" ${workout.level === 'Beginner' ? 'selected' : ''}>Beginner</option>
+                        <option value="Intermediate" ${workout.level === 'Intermediate' ? 'selected' : ''}>Intermediate</option>
+                        <option value="Advanced" ${workout.level === 'Advanced' ? 'selected' : ''}>Advanced</option>
+                    </select>
+                    <input id="edit-emoji" class="swal2-input m-0 w-full text-center rounded-xl" value="${workout.emoji}">
+                </div>
+            </div>`,
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        preConfirm: () => ({
+            ...workout,
+            name: document.getElementById('edit-name').value,
+            desc: document.getElementById('edit-desc').value,
+            level: document.getElementById('edit-level').value,
+            emoji: document.getElementById('edit-emoji').value
+        })
+    }).then(result => {
+        if (result.isConfirmed) {
+            allWorkouts[index] = result.value;
+            renderWorkouts(currentFilter);
+            Swal.fire({ title: 'Updated!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+
+// 4. دالة الحذف
+window.deleteWorkout = function(index) {
+    Swal.fire({
+        title: 'Remove Workout?',
+        text: `"${allWorkouts[index].name}" will be deleted.`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        confirmButtonText: 'Yes, remove it'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            allWorkouts.splice(index, 1);
+            renderWorkouts(currentFilter);
+            Swal.fire({ title: 'Deleted!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+
+// 5. دالة الإضافة
+window.addNewWorkout = function() {
+    Swal.fire({
+        title: 'New Fitness Plan',
+        html: `
+            <div class="flex flex-col gap-3 text-left mt-4">
+                <input id="sw-name" class="swal2-input m-0 w-full text-sm rounded-xl" placeholder="Workout Name">
+                <input id="sw-desc" class="swal2-input m-0 w-full text-sm rounded-xl" placeholder="Description">
+                <div class="grid grid-cols-2 gap-2">
+                    <select id="sw-level" class="swal2-input m-0 w-full text-sm rounded-xl">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                    <input id="sw-emoji" class="swal2-input m-0 w-full text-center rounded-xl" placeholder="Emoji">
+                </div>
+            </div>`,
+        showCancelButton: true,
+        confirmButtonColor: '#0B6B7A',
+        preConfirm: () => {
+            const name = document.getElementById('sw-name').value;
+            if (!name) return Swal.showValidationMessage('Name is required');
+            return {
+                name: name,
+                desc: document.getElementById('sw-desc').value || "Cardio and Strength",
+                level: document.getElementById('sw-level').value,
+                emoji: document.getElementById('sw-emoji').value || "💪",
+                time: "30m", burn: "250 kcal", bg: "bg-slate-50"
+            }
+        }
+    }).then(result => {
+        if (result.isConfirmed) {
+            allWorkouts.unshift(result.value);
+            renderWorkouts('all');
+            Swal.fire({ title: 'Added!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+        }
+    });
+}
+
+// 6. تهيئة الفلاتر عند التحميل
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('[data-filter]').forEach(b => {
+                b.classList.remove('bg-primary', 'text-white');
+                b.classList.add('text-slate-500', 'hover:bg-slate-50');
+            });
+            this.classList.add('bg-primary', 'text-white');
+            renderWorkouts(this.getAttribute('data-filter'));
+        });
+    });
+    renderWorkouts('all');
+});
+</script>
+    </body>
+</html>

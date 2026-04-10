@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password | Balance+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        'primary-dark': '#07505A',
+                        accent: '#6FCF97',
+                        sky: '#7DD3FC',
+                        success: '#10B981',
+                    },
+                    animation: {
+                        'float-slow': 'float 20s ease-in-out infinite',
+                        'float-reverse': 'float 15s ease-in-out infinite reverse',
+                        'pulse-slow': 'pulse-custom 3s ease-in-out infinite',
+                        'slide-down': 'slideDown 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+                            '50%': { transform: 'translateY(-30px) translateX(20px)' },
+                        },
+                        'pulse-custom': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-[#F0F9FA] via-[#E8F4F5] to-[#F6FBFC] min-h-screen flex items-center justify-center p-5 relative overflow-hidden font-sans">
+
+    <div class="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(111,207,151,0.08)_0%,transparent_70%)] rounded-full animate-float-slow"></div>
+    <div class="absolute -bottom-[25%] -left-[8%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(125,211,252,0.06)_0%,transparent_70%)] rounded-full animate-float-reverse"></div>
+
+    <div class="max-w-[480px] w-full relative z-10">
+        <div class="bg-white rounded-[24px] shadow-[0_12px_48px_rgba(11,107,122,0.12)] overflow-hidden border border-primary/5">
+            
+            <div class="pt-12 px-10 pb-8 text-center bg-gradient-to-br from-primary/[0.03] to-accent/[0.02] relative">
+                <div class="w-16 h-16 mx-auto mb-4 animate-pulse-slow drop-shadow-[0_4px_12px_rgba(11,107,122,0.15)]">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#0B6B7A" stroke-width="6"/>
+                        <path d="M35 50 L45 60 L65 40" fill="none" stroke="#6FCF97" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="text-[32px] font-bold text-primary mb-2 tracking-tight">Balance+</div>
+                
+                <div class="inline-flex items-center gap-1.5 bg-gradient-to-br from-accent/[0.12] to-emerald-500/[0.08] text-emerald-600 px-4 py-2 rounded-full text-xs font-semibold mb-6 border border-emerald-500/15">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Don't worry, we've got you covered
+                </div>
+
+                <h1 class="text-[28px] font-bold text-slate-900 mb-3 tracking-tight">Reset Your Password</h1>
+                <p class="text-sm text-slate-500 leading-relaxed">Enter your email and we'll send you a reset link to get back to your wellness journey.</p>
+            </div>
+
+            <div class="p-10 pt-8">
+                <div class="flex justify-center items-center gap-4 mb-8 flex-wrap">
+                    <div class="w-14 h-14 bg-primary/5 border border-primary/10 rounded-2xl flex items-center justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <div class="w-14 h-14 bg-primary/5 border border-primary/10 rounded-2xl flex items-center justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <div class="w-14 h-14 bg-primary/5 border border-primary/10 rounded-2xl flex items-center justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    </div>
+                    <div class="w-14 h-14 bg-primary/5 border border-primary/10 rounded-2xl flex items-center justify-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                        <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                </div>
+
+                <div id="successMessage" class="hidden animate-slide-down bg-emerald-500/[0.1] border border-emerald-500/20 p-5 rounded-xl mb-5 text-center">
+                    <svg class="w-12 h-12 text-success mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <h3 class="text-lg font-semibold text-success mb-1">Reset Link Sent!</h3>
+                    <p class="text-sm text-emerald-800">Check your email for instructions to reset your password.</p>
+                </div>
+
+                <form id="resetForm" class="space-y-6">
+                    <div>
+                        <label class="block font-semibold text-sm text-slate-900 mb-2">Email Address</label>
+                        <div class="relative group">
+                            <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <input 
+                                type="email" id="email" required
+                                class="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/5 transition-all placeholder:text-slate-400"
+                                placeholder="you@example.com"
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl font-bold text-base shadow-[0_4px_16px_rgba(11,107,122,0.2)] hover:shadow-[0_8px_24px_rgba(11,107,122,0.3)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+                        Send Reset Link
+                    </button>
+                </form>
+
+                <div id="backLogin" class="mt-5 text-center">
+                    <a href="login.html" class="text-primary font-bold text-[15px] hover:opacity-70 transition-all inline-flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        Back to Login
+                    </a>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-br from-sky/10 to-primary/5 border border-sky-200 p-4 rounded-xl flex items-start gap-3">
+                    <svg class="w-5 h-5 text-sky shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <p class="text-[13px] text-slate-500 leading-relaxed">If you don't receive an email within 5 minutes, check your spam folder or contact our support team.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('resetForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            if (email) {
+                document.getElementById('resetForm').classList.add('hidden');
+                document.getElementById('backLogin').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                console.log('Password reset requested for:', email);
+            }
+        });
+    </script>
+</body>
+</html>

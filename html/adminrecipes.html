@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance+ | Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0B6B7A',
+                        bgBody: '#F8FAFC',
+                        sidebarText: '#64748B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .nav-active {
+            background-color: #F1F5F9;
+            color: #0B6B7A !important;
+        }
+    </style>
+</head>
+<body class="bg-bgBody h-screen flex overflow-hidden">
+
+    <aside class="w-64 bg-white border-r border-slate-200 flex flex-col h-full shrink-0">
+        <div class="p-6">
+            <h1 class="text-xl font-bold text-primary tracking-tight">Balance+</h1>
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Admin Portal</p>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-1 overflow-y-auto mt-4">
+      <!-- <a href="#" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all"> -->
+                              <a href="admaindash.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+
+        <i class="fa-solid fa-table-cells-large text-lg"></i> Dashboard
+            </a>
+
+            <div class="py-4 px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Manage Content</div>
+
+            <div class="space-y-1">
+                            <a href="adminrecipes.html" class="nav-active flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition-all">
+
+                <!-- <a href="#" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all"> -->
+                    <i class="fa-solid fa-dollar-sign w-5"></i> Manage Recipes
+                </a>
+                <div class="pl-12 space-y-2 pb-2">
+                    <a href="#" data-cat="breakfast" class="block text-sm text-sidebarText hover:text-primary transition-colors">Breakfast</a>
+                    <a href="#" data-cat="lunch" class="block text-sm text-sidebarText hover:text-primary transition-colors">Lunch</a>
+                    <a href="#" data-cat="dinner" class="block text-sm text-sidebarText hover:text-primary transition-colors">Dinner</a>
+                    <a href="#" data-cat="snack" class="block text-sm text-sidebarText hover:text-primary transition-colors">Snack</a>
+                </div>
+            </div>
+
+            <a href="admainwork.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-bolt-lightning w-5"></i> Manage Workouts
+            </a>
+            <a href="admaindaily.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-calendar w-5"></i> Daily Wellness Plan
+            </a>
+            <a href="admintips.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-circle-question w-5"></i> Manage Health Tips
+            </a>
+            <a href="admindrink.html" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-droplet w-5"></i> Manage Drink Water
+            </a>
+            <!-- <a href="#" class="flex items-center gap-3 px-4 py-3 text-sidebarText hover:bg-slate-50 rounded-xl text-sm font-semibold transition-all">
+                <i class="fa-solid fa-book-open w-5"></i> Manage Browse Recipes
+            </a> -->
+        </nav>
+
+        <div class="p-6 border-t border-slate-100">
+            <a href="#" class="flex items-center gap-3 text-red-500 font-bold text-sm hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+        
+        <header class="h-20 bg-white border-b border-slate-100 px-8 flex items-center justify-between shrink-0">
+            <div class="relative w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" placeholder="Search..." class="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 pl-11 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/10 transition-all">
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center relative text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white">3</span>
+                </button>
+                <button class="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 transition-all">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-10">
+            <div class="max-w-6xl mx-auto text-center mb-10">
+                <h2 id="currentCategoryTitle" class="text-3xl font-black text-slate-800 tracking-tight">Breakfast Menu</h2>
+                <p class="text-slate-400 text-sm font-medium mt-1 italic">Managing total healthy recipes</p>
+            </div>
+
+            <div class="bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-slate-50/50 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                            <th class="px-8 py-6">Meal</th>
+                            <th class="px-8 py-6">Nutrition Profile</th>
+                            <th class="px-8 py-6">Energy</th>
+                            <th class="px-8 py-6 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recipeTableBody">
+                        </tbody>
+                </table>
+                <div class="flex justify-center mt-12 pb-10">
+            <button onclick="addNewRecipe()" class="bg-primary text-white px-12 py-4 rounded-[1.5rem] font-bold text-[12px] uppercase tracking-[0.15em] shadow-2xl shadow-primary/30 hover:-translate-y-1 active:scale-95 transition-all flex items-center gap-3">
+    <div class="bg-white/20 w-6 h-6 rounded-full flex items-center justify-center">
+        <i class="fa-solid fa-plus text-[10px]"></i>
+    </div>
+    Add New Recipe
+</button>
+        </div>
+            </div>
+
+        </main>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    // 1. قاعدة البيانات الكاملة (18 وصفة)
+    const allRecipes = {
+        breakfast: [
+            { name: "Blueberry Oatmeal", nutrients: "Prot: 10g | Carbs: 45g | Fats: 7g", cals: "320 kcal", img: "../images/altumcode-BT-Cx1n1LXA-unsplash.jpg" },
+            { name: "Spinach Omelet", nutrients: "Prot: 18g | Carbs: 15g | Fats: 14g", cals: "280 kcal", img: "../images/alimentos-fotogenicos-I7-KczdRauI-unsplash.jpg" },
+            { name: "Yogurt Parfait", nutrients: "Prot: 15g | Carbs: 30g | Fats: 5g", cals: "250 kcal", img: "../images/alondra-lucia-VnXAdRS6Yt4-unsplash.jpg" },
+            { name: "Avocado Toast", nutrients: "Prot: 8g | Carbs: 35g | Fats: 18g", cals: "310 kcal", img: "../images/imad-786-w1NiWDrp68M-unsplash.jpg" },
+            { name: "Banana Pancakes", nutrients: "Prot: 12g | Carbs: 40g | Fats: 10g", cals: "290 kcal", img: "../images/eiliv-aceron-exyTIrXyqm0-unsplash.jpg" }
+        ],
+        lunch: [
+            { name: "Grilled Chicken Bowl", nutrients: "Prot: 40g | Carbs: 40g | Fats: 12g", cals: "450 kcal", img: "../images/sumit-bhatia-g7WrssBb1Ak-unsplash.jpg" },
+            { name: "Baked Salmon", nutrients: "Prot: 35g | Carbs: 5g | Fats: 22g", cals: "400 kcal", img: "../images/thembi-johnson-HIFIN24HB7k-unsplash.jpg" },
+            { name: "Mediterranean Salad", nutrients: "Prot: 12g | Carbs: 45g | Fats: 9g", cals: "320 kcal", img: "../images/declan-sun-TsPlj-rqU9g-unsplash.jpg" },
+            { name: "Lentil Soup", nutrients: "Prot: 18g | Carbs: 40g | Fats: 4g", cals: "280 kcal", img: "../images/elena-leya-_jyB1ndDFQE-unsplash.jpg" },
+        ],
+        dinner: [
+            { name: "Tomato Basil Pasta", nutrients: "Prot: 12g | Carbs: 60g | Fats: 8g", cals: "350 kcal", img: "../images/karolina-kolodziejczak-Qf-gqJSWFYQ-unsplash.jpg" },
+            { name: "Stuffed Potato", nutrients: "Prot: 10g | Carbs: 55g | Fats: 2g", cals: "300 kcal", img: "../images/david-todd-mccarty-IzJTWRzipGc-unsplash.jpg" },
+            { name: "Shrimp 'Rice'", nutrients: "Prot: 25g | Carbs: 10g | Fats: 6g", cals: "250 kcal", img: "../images/diego-arenas-de-rodrigo-kPAhQN-vxYg-unsplash.jpg" },
+            { name: "Tofu Buddha Bowl", nutrients: "Prot: 20g | Carbs: 12g | Fats: 15g", cals: "270 kcal", img: "../images/pexels-cottonbro-3297367.jpg" }
+        ],
+        snack: [
+            { name: "Apple & Nut Butter", nutrients: "Prot: 4g | Carbs: 20g | Fats: 8g", cals: "180 kcal", img: "../images/cgdsro-food-3126525_1280.jpg" },
+            { name: "Mixed Nuts", nutrients: "Prot: 5g | Carbs: 6g | Fats: 14g", cals: "160 kcal", img: "../images/maksim-shutov-pUa1On18Jno-unsplash.jpg" },
+            { name: "Carrots & Hummus", nutrients: "Prot: 3g | Carbs: 15g | Fats: 6g", cals: "120 kcal", img: "../images/corey-watson-ArGWd4sK6RM-unsplash.jpg" },
+            { name: "Dark Chocolate", nutrients: "Prot: 2g | Carbs: 12g | Fats: 11g", cals: "150 kcal", img: "../images/tetiana-bykovets-YemxYB75xvI-unsplash.jpg" }
+        ]
+    };
+
+    let currentCategory = 'breakfast';
+
+    // 2. دالة عرض الجدول
+    function renderRecipes(category) {
+        currentCategory = category;
+        const tbody = document.getElementById('recipeTableBody');
+        const title = document.getElementById('currentCategoryTitle');
+        if (!tbody) return;
+
+        title.innerText = `${category.charAt(0).toUpperCase() + category.slice(1)} Menu`;
+        tbody.innerHTML = '';
+
+        allRecipes[category].forEach((recipe, index) => {
+            const row = `
+                <tr class="group hover:bg-slate-50/50 transition-all border-b border-slate-100">
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-4">
+                            <img src="${recipe.img}" class="w-14 h-14 rounded-2xl object-cover shadow-sm" onerror="this.src='https://via.placeholder.com/150'">
+                            <span class="font-bold text-slate-700 text-sm">${recipe.name}</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6 text-xs font-medium text-slate-400">${recipe.nutrients}</td>
+                    <td class="px-8 py-6">
+                        <span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase">${recipe.cals}</span>
+                    </td>
+                    <td class="px-8 py-6">
+                        <div class="flex justify-center gap-2">
+                            <button onclick="handleEdit('${category}', ${index})" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-100 text-slate-400 hover:text-primary transition-all">
+                                <i class="fa-solid fa-pen-to-square text-[10px]"></i>
+                            </button>
+                            <button onclick="handleDelete('${category}', ${index})" class="w-9 h-9 flex items-center justify-center rounded-xl bg-red-50 text-red-500 hover:bg-red-500 hover:text-white transition-all">
+                                <i class="fa-solid fa-trash-can text-[10px]"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+            tbody.innerHTML += row;
+        });
+    }
+
+    // 3. وظيفة الحذف
+    window.handleDelete = function(cat, index) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Recipe will be removed permanently!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0B6B7A',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                allRecipes[cat].splice(index, 1);
+                renderRecipes(cat);
+                Swal.fire({ title: 'Deleted!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+            }
+        });
+    }
+
+    // 4. وظيفة التعديل
+    window.handleEdit = function(cat, index) {
+        const recipe = allRecipes[cat][index];
+        Swal.fire({
+            title: 'Edit Recipe',
+            html: `
+                <div class="flex flex-col gap-3 text-left">
+                    <input id="swal-name" class="swal2-input w-full m-0 text-sm" value="${recipe.name}">
+                    <input id="swal-nut" class="swal2-input w-full m-0 text-sm" value="${recipe.nutrients}">
+                    <input id="swal-cals" class="swal2-input w-full m-0 text-sm" value="${recipe.cals}">
+                </div>`,
+            showCancelButton: true,
+            confirmButtonColor: '#0B6B7A',
+            preConfirm: () => ({
+                name: document.getElementById('swal-name').value,
+                nutrients: document.getElementById('swal-nut').value,
+                cals: document.getElementById('swal-cals').value,
+                img: recipe.img
+            })
+        }).then((result) => {
+            if (result.isConfirmed) {
+                allRecipes[cat][index] = result.value;
+                renderRecipes(cat);
+                Swal.fire({ title: 'Updated!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+            }
+        });
+    }
+
+    // 5. وظيفة الإضافة
+    window.addNewRecipe = function() {
+        Swal.fire({
+            title: `Add to ${currentCategory}`,
+            html: `
+                <div class="flex flex-col gap-3 text-left">
+                    <input id="add-name" class="swal2-input w-full m-0 text-sm" placeholder="Recipe Name">
+                    <input id="add-nut" class="swal2-input w-full m-0 text-sm" placeholder="Prot: 20g | Carbs: 30g">
+                    <input id="add-cals" class="swal2-input w-full m-0 text-sm" placeholder="e.g. 300 kcal">
+                </div>`,
+            showCancelButton: true,
+            confirmButtonColor: '#0B6B7A',
+            preConfirm: () => {
+                const name = document.getElementById('add-name').value;
+                if (!name) return Swal.showValidationMessage('Name is required');
+                return {
+                    name: name,
+                    nutrients: document.getElementById('add-nut').value || 'N/A',
+                    cals: document.getElementById('add-cals').value || '0 kcal',
+                    img: 'https://via.placeholder.com/150'
+                }
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                allRecipes[currentCategory].push(result.value);
+                renderRecipes(currentCategory);
+                Swal.fire({ title: 'Added!', icon: 'success', confirmButtonColor: '#0B6B7A' });
+            }
+        });
+    }
+
+    // 6. تهيئة الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+        renderRecipes('breakfast');
+
+        // تفعيل التنقل بين الأقسام من القائمة الجانبية
+        document.querySelectorAll('[data-cat]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const cat = this.getAttribute('data-cat');
+                renderRecipes(cat);
+            });
+        });
+    });
+</script>
+</body>
+</html>

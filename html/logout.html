@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Successful | Balance+</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0B6B7A;
+            --primary-dark: #07505A;
+            --accent: #6FCF97;
+            --sky: #7DD3FC;
+            --bg: #F6FBFC;
+            --card: #FFFFFF;
+            --text: #0F172A;
+            --text-muted: #64748B;
+            --border: rgba(15, 23, 42, 0.10);
+            --success: #10B981;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #F0F9FA 0%, #E8F4F5 50%, #F6FBFC 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(111, 207, 151, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            bottom: -25%;
+            left: -8%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(125, 211, 252, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .logout-container {
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logout-card {
+            background: var(--card);
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: 0 12px 48px rgba(11, 107, 122, 0.12);
+            border: 1px solid rgba(11, 107, 122, 0.06);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 28px;
+            position: relative;
+        }
+
+        .success-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 4px 16px rgba(16, 185, 129, 0.2));
+        }
+
+        .success-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-success 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-success {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .logout-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .logout-message {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 36px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 15px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 16px rgba(11, 107, 122, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(11, 107, 122, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(11, 107, 122, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
+            margin: 24px auto;
+            border-radius: 2px;
+        }
+
+        .footer {
+            margin-top: 32px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .logout-card {
+                padding: 40px 28px;
+            }
+
+            .success-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .logout-title {
+                font-size: 24px;
+            }
+
+            .logout-message {
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+
+            .logout-card {
+                padding: 36px 24px;
+            }
+
+            .success-icon {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 24px;
+            }
+
+            .logout-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <div class="logout-card">
+            <div class="success-icon">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#10B981" stroke-width="6"/>
+                    <path d="M30 50 L42 62 L70 34" fill="none" stroke="#10B981" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="logo">Balance+</div>
+
+            <h1 class="logout-title">You have been logged out successfully</h1>
+            
+            <p class="logout-message">
+                Thank you for using Balance+. We hope to see you again soon on your wellness journey!
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="button-group">
+                <a href="login.html" class="btn btn-primary">Login Again</a>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2026 Balance+. All rights reserved.
+    </footer>
+</body>
+</html>
